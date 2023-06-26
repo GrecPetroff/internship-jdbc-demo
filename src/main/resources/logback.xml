@@ -1,0 +1,20 @@
+<configuration>
+    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+    <import class="ch.qos.logback.core.ConsoleAppender"/>
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value=" %yellow(%date{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %magenta(${PID:- }) %magenta(---) [%15.15t] %cyan(%-40.40logger{39}) %magenta(:)  %m%n%xEx"/>
+
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="org.vivat" level="INFO,DEBUG"/>
+    <root>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
